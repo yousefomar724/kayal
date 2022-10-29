@@ -1,0 +1,101 @@
+const plugin = require('tailwindcss/plugin')
+const colors = require('tailwindcss/colors')
+
+module.exports = {
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  darkMode: 'class', // or 'media' or 'class'
+  theme: {
+    extend: {
+      colors: {
+        primaryGreen: "#09B44D",
+        primaryGreen: {
+          50: "#f3f4f6",
+          100: "#fff",
+          200: "#f3f4f6",
+          // 200: "#D09C32",
+          300: "#f3f4f6",
+          350: "#f3f4f6",
+          // 300: "#C28B0F",
+          400: "teal",
+          500: "teal",
+        },
+        secondaryDark: "#fffff",
+      },
+      border: {
+        
+      },
+      zIndex: {
+        90: '90',
+        100: '100',
+        101: '101',
+        102: '102',
+        103: '103',
+        104: '104',
+      },
+      boxShadow: {
+        top: {
+          'sm': '0 -1px 2px 0 rgba(0, 0, 0, 0.05)',
+          'md': '0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+          'lg': '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          'xl': '0 -20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+          '2xl': '0 -25px 50px -12px rgba(0, 0, 0, 0.25)',
+          '3xl': '0 -35px 60px -15px rgba(0, 0, 0, 0.3)',
+          'topxl': '0 -35px 60px rgba(0, 0, 0, 0.3)',
+        },
+        'topmd': '0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'toplg': '0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        'topxl': '0 -20px 60px rgba(0, 0, 0, 0.3)',
+      },
+      opacity: {
+        '15': '.15',
+      },
+      height: {
+        s30: '30vh',
+        s40: '40vh',
+        s50: '50vh',
+        s60: '60vh',
+        s65: '65vh',
+        s70: '70vh',
+        s75: '75vh',
+        s80: '80vh',
+        s85: '85vh',
+        s90: '90vh',
+       },
+
+       fontSize: {
+         'xxs': ['0.7rem', '0.75rem'],
+         '2xs': ['0.625rem', '0.75rem'],
+       },
+
+       animation: {
+        switch: 'fadeIn 5s ease-in-out',
+      },
+      keyframes: theme => ({
+        fadeIn: {
+          '0%': { backgroundColor: theme('colors.red.300') },
+          '100%': { backgroundColor: theme('colors.transparent') },
+        },
+      }),
+
+    },
+  },
+  variants: {
+    extend: {
+      boxShadow: ['active'],
+      backgroundColor: ['active',],
+      borderWidth: ['hover', 'focus'],
+      rotate: ['active', 'group-hover'],
+    },
+    textTransform: ({ after }) => after(['first-letter']),
+  },
+  plugins: [
+    plugin(function ({ addVariant, e }) {
+      addVariant('first-letter', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`first-letter${separator}${className}`)}:first-letter`
+        })
+      })
+    }),
+    require('@tailwindcss/line-clamp'),
+  ],
+}

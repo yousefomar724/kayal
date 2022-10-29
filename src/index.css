@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Almarai', sans-serif;
+}
+.rtl {
+    direction: rtl;
+}
+.ltr {
+    direction: ltr;
+}
+
+.first-letter{
+    display: block;
+    color: transparent;
+}
+.first-letter:first-letter{
+    color: #f3f4f6;
+    color: #cb8c0a12;
+    color: #ffeccd;
+    color: #f3f4f6;
+    color: #008080;
+
+    color: #000;
+}
+.slick-dots {
+    display: none !important;
+}
+
+.slick-slide {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  .fade-enter .mode-icon {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  .fade-enter-active .mode-icon {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  .fade-exit .mode-icon {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  .fade-exit-active .mode-icon {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .fade-enter-active .mode-icon,
+  .fade-exit-active .mode-icon {
+    transition: opacity 500ms, transform 500ms;
+  }
+  .lglg {
+    max-width: 100px;
+    padding: 10px
+  }
+  .pl-5 {
+    padding-left: 0.75rem;
+  }
+  .lgo {
+    max-width: 55px;
+    padding: 3px;
+    background-color: #fff;
+    border-radius: 10px;
+    border-color: #008080;
+    border-width: 2px;
+    position: absolute;
+    top: 9px;
+    right: 25px;
+    }
+    .pr-5 {
+      padding-right: 5rem;
+  }
+    .z-30 .App-header {
+    z-index: 5;
+    background-color: #ffffff;
+    }
+    .font-extrabold {
+      padding-right: 10px;
+      padding-top: 10px;
+      cursor: context-menu;
+  }
+  .col-span-3 {
+    padding-top: 10px;
+  }
+  .w-full {
+    cursor: context-menu;
+  }
